@@ -117,10 +117,10 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor({name, age, location}) {
-    this.name = name;
-    this.age = age;
-    this.location = location;
+  constructor(attrbs) {
+    this.name = attrbs.name;
+    this.age = attrbs.age;
+    this.location = attrbs.location;
   }
 
   speak(){
@@ -175,7 +175,25 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(attrbs) {
+    super(attrbs);
+    this.previousBackground = attrbs.previousBackground;
+    this.className = attrbs.className;
+    this.favSubjects = attrbs.favSubjects;
+  }
+
+  listSubjects() {
+    return `Loving ${this.favSubjects}`;
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`
+  }
 
 }
 
