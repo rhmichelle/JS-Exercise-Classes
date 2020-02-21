@@ -47,7 +47,7 @@ class Person {
     this.stomach = [ ];
   }
   eat(someFood) {
-    if(this.stomach.length <= 10) {
+    if(this.stomach.length < 10) {
         this.stomach.push(someFood);
     }
   }
@@ -210,7 +210,20 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+    constructor(attrbs) {
+      super(attrbs);
+      this.gradClassName = attrbs.gradClassName;
+      this.favInstructor = attrbs.favInstructor;
+    }
+
+    standUp(slackChannel) {
+      return `${this.name} announce to ${slackChannel}, @channel standy times!`
+    }
+
+    debugsCode(studentObj, subject) {
+      return `${this.name} debugs ${studentObj.name}'s code on ${subject}`
+    }
 
 }
 
